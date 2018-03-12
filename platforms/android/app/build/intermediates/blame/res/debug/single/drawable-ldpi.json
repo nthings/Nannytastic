@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "/Users/nthings/Desktop/nanys/platforms/android/app/build/intermediates/res/merged/debug/drawable-ldpi/icon.png",
+        "source": "/Users/nthings/Desktop/nanys/platforms/android/app/src/main/res/drawable-ldpi/icon.png"
+    },
+    {
+        "merged": "/Users/nthings/Desktop/nanys/platforms/android/app/build/intermediates/res/merged/debug/drawable-ldpi/logo.png",
+        "source": "/Users/nthings/Desktop/nanys/platforms/android/app/src/main/res/drawable-ldpi/logo.png"
+    },
+    {
+        "merged": "/Users/nthings/Desktop/nanys/platforms/android/app/build/intermediates/res/merged/debug/drawable-ldpi/background.png",
+        "source": "/Users/nthings/Desktop/nanys/platforms/android/app/src/main/res/drawable-ldpi/background.png"
+    }
+]

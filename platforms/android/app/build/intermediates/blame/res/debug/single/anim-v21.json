@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/Users/nthings/Desktop/nanys/platforms/android/app/build/intermediates/res/merged/debug/anim-v21/design_bottom_sheet_slide_in.xml",
+        "source": "/Users/nthings/.android/build-cache/77f9418df4c51769df7cd301145eedc007e7ea3c/output/res/anim-v21/design_bottom_sheet_slide_in.xml"
+    },
+    {
+        "merged": "/Users/nthings/Desktop/nanys/platforms/android/app/build/intermediates/res/merged/debug/anim-v21/design_bottom_sheet_slide_out.xml",
+        "source": "/Users/nthings/.android/build-cache/77f9418df4c51769df7cd301145eedc007e7ea3c/output/res/anim-v21/design_bottom_sheet_slide_out.xml"
+    }
+]

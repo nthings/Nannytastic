@@ -1,0 +1,88 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "@angular/compiler@~5.2.0",
+        "scope": "@angular",
+        "escapedName": "@angular%2fcompiler",
+        "name": "@angular/compiler",
+        "rawSpec": "~5.2.0",
+        "spec": ">=5.2.0 <5.3.0",
+        "type": "range"
+      },
+      "/Users/nthings/Desktop/nanys/node_modules/tns-template-tab-navigation-ng"
+    ]
+  ],
+  "_from": "@angular/compiler@>=5.2.0 <5.3.0",
+  "_hasShrinkwrap": false,
+  "_id": "@angular/compiler@5.2.7",
+  "_inCache": true,
+  "_location": "/@angular/compiler",
+  "_nodeVersion": "8.9.1",
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/compiler_5.2.7_1519859329829_0.24532070518611593"
+  },
+  "_npmUser": {
+    "name": "angular",
+    "email": "devops+npm@angular.io"
+  },
+  "_npmVersion": "5.5.1",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "@angular/compiler@~5.2.0",
+    "scope": "@angular",
+    "escapedName": "@angular%2fcompiler",
+    "name": "@angular/compiler",
+    "rawSpec": "~5.2.0",
+    "spec": ">=5.2.0 <5.3.0",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "/tns-template-tab-navigation-ng"
+  ],
+  "_resolved": "https://registry.npmjs.org/@angular/compiler/-/compiler-5.2.7.tgz",
+  "_shasum": "31dcc7ac18cc23cb115e76c541b982737ff93ec9",
+  "_shrinkwrap": null,
+  "_spec": "@angular/compiler@~5.2.0",
+  "_where": "/Users/nthings/Desktop/nanys/node_modules/tns-template-tab-navigation-ng",
+  "author": {
+    "name": "angular"
+  },
+  "bugs": {
+    "url": "https://github.com/angular/angular/issues"
+  },
+  "dependencies": {
+    "tslib": "^1.7.1"
+  },
+  "description": "Angular - the compiler library",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "integrity": "sha512-26RG+Dy+M/95OyNNqM+OAruarIPOmbndiaglz2dMrNYzenfbSgG/AoPlL5uCdSqZDiXgnlKnS2K6/ePWXDSKNw==",
+    "shasum": "31dcc7ac18cc23cb115e76c541b982737ff93ec9",
+    "tarball": "https://registry.npmjs.org/@angular/compiler/-/compiler-5.2.7.tgz",
+    "fileCount": 123,
+    "unpackedSize": 12570434
+  },
+  "es2015": "./esm2015/compiler.js",
+  "homepage": "https://github.com/angular/angular#readme",
+  "license": "MIT",
+  "main": "./bundles/compiler.umd.js",
+  "maintainers": [
+    {
+      "name": "angular",
+      "email": "devops+npm@angular.io"
+    }
+  ],
+  "module": "./esm5/compiler.js",
+  "name": "@angular/compiler",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/angular/angular.git"
+  },
+  "typings": "./compiler.d.ts",
+  "version": "5.2.7"
+}
