@@ -1,9 +1,9 @@
 {
-	"time": "Thu Mar 22 2018 15:30:48 GMT-0600 (Central Standard Time (Mexico))",
+	"time": "Thu Mar 22 2018 17:06:43 GMT-0600 (Central Standard Time (Mexico))",
 	"nativePlatformStatus": "3",
 	"bundle": false,
 	"release": true,
 	"changesRequireBuild": true,
-	"projectFileHash": "378ece3147dace4641f472e7335bea7422ecb332f9139cfccffb517425464df3",
-	"changesRequireBuildTime": "Thu Mar 22 2018 15:30:48 GMT-0600 (Central Standard Time (Mexico))"
+	"projectFileHash": "bd93adfd5ba27fa8dbdaf7bb1a6a34ed4f20c5b9685c4425d9ad4fa6c3ceac9b",
+	"changesRequireBuildTime": "Thu Mar 22 2018 17:06:43 GMT-0600 (Central Standard Time (Mexico))"
 }

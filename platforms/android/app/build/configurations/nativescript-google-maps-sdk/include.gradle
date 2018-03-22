@@ -1,0 +1,12 @@
+android { 
+	productFlavors {
+		"F0" {
+			dimension "nativescriptgooglemapssdk"
+		}
+	}
+}
+
+dependencies {
+	def googlePlayServicesVersion = project.hasProperty('googlePlayServicesVersion') ? project.googlePlayServicesVersion : '+'
+	compile "com.google.android.gms:play-services-maps:$googlePlayServicesVersion"
+}
