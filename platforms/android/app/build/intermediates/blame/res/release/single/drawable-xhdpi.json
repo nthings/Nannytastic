@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "C:\\Users\\mauricio.m\\Downloads\\PortableGit\\nanys\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi\\logo.png",
+        "source": "C:\\Users\\mauricio.m\\Downloads\\PortableGit\\nanys\\platforms\\android\\app\\src\\main\\res\\drawable-xhdpi\\logo.png"
+    },
+    {
+        "merged": "C:\\Users\\mauricio.m\\Downloads\\PortableGit\\nanys\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi\\icon.png",
+        "source": "C:\\Users\\mauricio.m\\Downloads\\PortableGit\\nanys\\platforms\\android\\app\\src\\main\\res\\drawable-xhdpi\\icon.png"
+    },
+    {
+        "merged": "C:\\Users\\mauricio.m\\Downloads\\PortableGit\\nanys\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi\\background.png",
+        "source": "C:\\Users\\mauricio.m\\Downloads\\PortableGit\\nanys\\platforms\\android\\app\\src\\main\\res\\drawable-xhdpi\\background.png"
+    }
+]

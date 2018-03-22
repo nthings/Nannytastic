@@ -1,50 +1,27 @@
 {
-  "_args": [
-    [
-      {
-        "raw": "zone.js@~0.8.18",
-        "scope": null,
-        "escapedName": "zone.js",
-        "name": "zone.js",
-        "rawSpec": "~0.8.18",
-        "spec": ">=0.8.18 <0.9.0",
-        "type": "range"
-      },
-      "/Users/nthings/Desktop/nanys/node_modules/tns-template-tab-navigation-ng"
-    ]
-  ],
-  "_from": "zone.js@>=0.8.18 <0.9.0",
+  "_from": "zone.js@~0.8.18",
   "_id": "zone.js@0.8.20",
-  "_inCache": true,
+  "_inBundle": false,
+  "_integrity": "sha512-FXlA37ErSXCMy5RNBcGFgCI/Zivqzr0D19GuvDxhcYIJc7xkFp6c29DKyODJu0Zo+EMyur/WPPgcBh1EHjB9jA==",
   "_location": "/zone.js",
-  "_nodeVersion": "6.9.2",
-  "_npmOperationalInternal": {
-    "host": "s3://npm-registry-packages",
-    "tmp": "tmp/zone.js-0.8.20.tgz_1515623526940_0.36898547667078674"
-  },
-  "_npmUser": {
-    "name": "angular",
-    "email": "angular-core+npm@google.com"
-  },
-  "_npmVersion": "5.5.1",
   "_phantomChildren": {},
   "_requested": {
+    "type": "range",
+    "registry": true,
     "raw": "zone.js@~0.8.18",
-    "scope": null,
-    "escapedName": "zone.js",
     "name": "zone.js",
+    "escapedName": "zone.js",
     "rawSpec": "~0.8.18",
-    "spec": ">=0.8.18 <0.9.0",
-    "type": "range"
+    "saveSpec": null,
+    "fetchSpec": "~0.8.18"
   },
   "_requiredBy": [
-    "/tns-template-tab-navigation-ng"
+    "/"
   ],
   "_resolved": "https://registry.npmjs.org/zone.js/-/zone.js-0.8.20.tgz",
   "_shasum": "a218c48db09464b19ff6fc8f0d4bb5b1046e185d",
-  "_shrinkwrap": null,
   "_spec": "zone.js@~0.8.18",
-  "_where": "/Users/nthings/Desktop/nanys/node_modules/tns-template-tab-navigation-ng",
+  "_where": "C:\\Users\\mauricio.m\\Downloads\\PortableGit\\nanys",
   "author": {
     "name": "Brian Ford"
   },
@@ -52,7 +29,9 @@
   "bugs": {
     "url": "https://github.com/angular/zone.js/issues"
   },
+  "bundleDependencies": false,
   "dependencies": {},
+  "deprecated": false,
   "description": "Zones for JavaScript",
   "devDependencies": {
     "@types/jasmine": "2.2.33",
@@ -104,36 +83,14 @@
     "lib": "lib",
     "test": "test"
   },
-  "dist": {
-    "integrity": "sha512-FXlA37ErSXCMy5RNBcGFgCI/Zivqzr0D19GuvDxhcYIJc7xkFp6c29DKyODJu0Zo+EMyur/WPPgcBh1EHjB9jA==",
-    "shasum": "a218c48db09464b19ff6fc8f0d4bb5b1046e185d",
-    "tarball": "https://registry.npmjs.org/zone.js/-/zone.js-0.8.20.tgz"
-  },
   "files": [
     "lib",
     "dist"
   ],
-  "gitHead": "fd91152e615e3e8fbe69102f370fd32df8e3e174",
   "homepage": "https://github.com/angular/zone.js#readme",
   "license": "MIT",
   "main": "dist/zone-node.js",
-  "maintainers": [
-    {
-      "name": "angular",
-      "email": "angular-core+npm@google.com"
-    },
-    {
-      "name": "angularcore",
-      "email": "angular-core+npm@google.com"
-    },
-    {
-      "name": "btford",
-      "email": "briantford@gmail.com"
-    }
-  ],
   "name": "zone.js",
-  "optionalDependencies": {},
-  "readme": "ERROR: No README data found!",
   "repository": {
     "type": "git",
     "url": "git://github.com/angular/zone.js.git"
