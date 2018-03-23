@@ -13,6 +13,9 @@ android {
   aaptOptions {  
     additionalParameters "--no-version-vectors"  
   }  
+  project.ext {
+    googlePlayServicesVersion = "11.8.0"
+  }
 } 
 
 def settingsGradlePath = "$rootDir/../../app/App_Resources/Android/settings.gradle";

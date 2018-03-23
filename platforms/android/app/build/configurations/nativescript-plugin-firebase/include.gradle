@@ -37,35 +37,35 @@ dependencies {
     def googlePlayServicesVersion = project.hasProperty('googlePlayServicesVersion') ? project.googlePlayServicesVersion : firebaseVersion
     compile "com.google.android.gms:play-services-base:$googlePlayServicesVersion"
 
-    // Uncomment if you want to use the regular Database (instead of 'Cloud Firestore')
-//    compile "com.google.firebase:firebase-database:$firebaseVersion"
+    // Uncomment if you want to use the regular Database
+     compile "com.google.firebase:firebase-database:$firebaseVersion"
 
     // Uncomment if you want to use 'Cloud Firestore'
-//    compile "com.google.firebase:firebase-firestore:$firebaseVersion"
+    // compile "com.google.firebase:firebase-firestore:$firebaseVersion"
 
     // Uncomment if you want to use 'Remote Config'
-//    compile "com.google.firebase:firebase-config:$firebaseVersion"
+    // compile "com.google.firebase:firebase-config:$firebaseVersion"
 
     // Uncomment if you want to use 'Crash Reporting'
-//    compile "com.google.firebase:firebase-crash:$firebaseVersion"
+    // compile "com.google.firebase:firebase-crash:$firebaseVersion"
 
     // Uncomment if you want FCM (Firebase Cloud Messaging)
-//    compile "com.google.firebase:firebase-messaging:$firebaseVersion"
+    // compile "com.google.firebase:firebase-messaging:$firebaseVersion"
 
     // Uncomment if you want Google Cloud Storage
-//    compile "com.google.firebase:firebase-storage:$firebaseVersion"
+    // compile "com.google.firebase:firebase-storage:$firebaseVersion"
 
     // Uncomment if you want AdMob
-//    compile "com.google.firebase:firebase-ads:$firebaseVersion"
+    // compile "com.google.firebase:firebase-ads:$firebaseVersion"
 
     // Uncomment if you need Facebook Authentication
-//    compile ("com.facebook.android:facebook-android-sdk:4.+"){ exclude group: 'com.google.zxing' }
+     compile ("com.facebook.android:facebook-android-sdk:4.+"){ exclude group: 'com.google.zxing' }
 
     // Uncomment if you need Google Sign-In Authentication
-//    compile "com.google.android.gms:play-services-auth:$googlePlayServicesVersion"
+    // compile "com.google.android.gms:play-services-auth:$googlePlayServicesVersion"
 
-    // Uncomment if you need Firebase Invites or Dynamics Links
-//    compile "com.google.firebase:firebase-invites:$firebaseVersion"
+    // Uncomment if you need Firebase Invites or Dynamic Links
+    // compile "com.google.firebase:firebase-invites:$firebaseVersion"
 }
 
 apply plugin: "com.google.gms.google-services"
