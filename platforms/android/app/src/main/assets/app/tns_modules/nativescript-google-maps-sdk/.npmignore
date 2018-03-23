@@ -1,6 +1,0 @@
-.idea
-demo
-ng-demo
-tsconfig.json
-*.ts
-!*.d.ts
