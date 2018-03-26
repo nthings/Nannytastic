@@ -25,7 +25,7 @@ export class MapComponent implements OnInit {
   ngOnInit() {
     const nannyIcon = {
       path: iconSvg.svg,
-      fillColor: '#FF0000',
+      fillColor: '#ff94cc',
       fillOpacity: 1,
       anchor: new google.maps.Point(0, 0),
       strokeWeight: 0,

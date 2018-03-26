@@ -1,11 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* paleta
+azul marino: #27253f
+rosa: #ff94cc
+amarillo: #ffffae
+azul: #b0c7ff
+*/
 body, html {
   height: 100%;
   width: 100%;
 }
 
 .bg-dark {
-  background-color: #ca7eff !important;
+  background-color: #b0c7ff !important;
 }
 
 .bg-dark a {
