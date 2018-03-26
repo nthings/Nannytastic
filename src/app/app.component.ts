@@ -13,5 +13,10 @@ export class AppComponent {
 
   constructor(public afAuth: AngularFireAuth) {
     this.user = this.afAuth.authState;
+    this.user.subscribe(
+      user => {
+        console.log(user);
+      }
+    );
   }
 }
