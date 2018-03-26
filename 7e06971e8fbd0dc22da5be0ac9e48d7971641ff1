@@ -1,0 +1,10 @@
+[ver:1,total:1260]
+src/app/navbar/navbar.component.ts:500,1522101600:500,m
+src/app/app.component.html:275,1522101600:275,m
+src/app/map/map.component.ts:225,1522101600:225,r
+src/app/app.component.ts:163,1522101600:163,m
+src/app/map/map.component.html:35,1522101600:35,r
+src/index.html:20,1522101600:20,m
+package.json:20,1522101600:20,r
+src/app/login/login.component.html:15,1522101600:15,r
+src/app/login/login.component.ts:7,1522101600:7,r
