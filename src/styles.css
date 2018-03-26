@@ -3,3 +3,11 @@ body, html {
   height: 100%;
   width: 100%;
 }
+
+.bg-dark {
+  background-color: #ca7eff !important;
+}
+
+.bg-dark a {
+  color: #343a40 !important;
+}

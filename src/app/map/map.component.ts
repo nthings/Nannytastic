@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { Router } from '@angular/router';
 import { } from '@types/googlemaps';
 
 const mapStyle = require('./map-style.json');
@@ -16,12 +17,14 @@ export class MapComponent implements OnInit {
 
   latitude: any;
   longitude: any;
-  constructor(public afAuth: AngularFireAuth) { }
+  constructor(public afAuth: AngularFireAuth,
+              private router: Router) { }
 
   ngOnInit() {
     this.afAuth.authState.subscribe(
       user => {
         this.user = user;
+        console.log(user);
       }
     );
 
@@ -40,6 +43,9 @@ export class MapComponent implements OnInit {
       (position) => {
         this.latitude = position.coords.latitude;
         this.longitude = position.coords.longitude;
+        console.log(position.coords);
+        console.log(this.latitude);
+        console.log(this.longitude);
         this.setCenter();
       });
   }
@@ -54,6 +60,11 @@ export class MapComponent implements OnInit {
       map: this.map,
       title: 'Got you!'
     });
+  }
+
+  logout() {
+    this.afAuth.auth.signOut();
+    this.router.navigate(['/']);
   }
 
 }
