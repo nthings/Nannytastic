@@ -1,41 +1,65 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFirestore } from 'angularfire2/firestore';
 import { Router } from '@angular/router';
 import { } from '@types/googlemaps';
+import { Observable } from 'rxjs/Observable';
 
 const mapStyle = require('./map-style.json');
+const iconSvg = require('./svg.json');
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.css']
 })
 export class MapComponent implements OnInit {
-  user;
-
   @ViewChild('map') gmapElement: any;
   map: google.maps.Map;
 
   latitude: any;
   longitude: any;
-  constructor(public afAuth: AngularFireAuth,
-              private router: Router) { }
+
+  nannys: Array<any>;
+  constructor(private router: Router,
+              private db: AngularFirestore) { }
 
   ngOnInit() {
-    this.afAuth.authState.subscribe(
-      user => {
-        this.user = user;
-        console.log(user);
-      }
-    );
+    const nannyIcon = {
+      path: iconSvg.svg,
+      fillColor: '#FF0000',
+      fillOpacity: 1,
+      anchor: new google.maps.Point(0, 0),
+      strokeWeight: 0,
+      scale: 0.1
+    };
 
-    const mapProp = {
+    this.map = new google.maps.Map(this.gmapElement.nativeElement, {
       center: new google.maps.LatLng(18.5793, 73.8143),
       zoom: 15,
       mapTypeId: google.maps.MapTypeId.ROADMAP,
       styles: mapStyle
-    };
-    this.map = new google.maps.Map(this.gmapElement.nativeElement, mapProp);
+    });
     this.geolocate();
+
+    // Get nannys from Firebase and randomly put markers in the map
+    this.db.collection('/nannys').valueChanges().subscribe(
+      nannys => {
+        this.nannys = nannys;
+        for (const nanny of nannys) {
+          const marker = new google.maps.Marker({
+            position: this.randomMarker(this.map.getBounds()),
+            map: this.map,
+            icon: nannyIcon,
+            title: (<any>nanny).name
+          });
+          const infowindow = new google.maps.InfoWindow({
+            content: (<any>nanny).name
+          });
+          marker.addListener('click', function () {
+            infowindow.open(this.map, marker);
+          });
+        }
+      }
+    );
   }
 
   geolocate() {
@@ -43,9 +67,6 @@ export class MapComponent implements OnInit {
       (position) => {
         this.latitude = position.coords.latitude;
         this.longitude = position.coords.longitude;
-        console.log(position.coords);
-        console.log(this.latitude);
-        console.log(this.longitude);
         this.setCenter();
       });
   }
@@ -62,9 +83,13 @@ export class MapComponent implements OnInit {
     });
   }
 
-  logout() {
-    this.afAuth.auth.signOut();
-    this.router.navigate(['/']);
+  randomMarker(bounds) {
+    const lat_min = bounds.getSouthWest().lat(),
+          lat_range = bounds.getNorthEast().lat() - lat_min,
+          lng_min = bounds.getSouthWest().lng(),
+          lng_range = bounds.getNorthEast().lng() - lng_min;
+
+    return new google.maps.LatLng(lat_min + (Math.random() * lat_range), lng_min + (Math.random() * lng_range));
   }
 
 }

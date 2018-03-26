@@ -24,8 +24,12 @@ export class LoginComponent implements OnInit {
     );
   }
 
-  login() {
+  loginFacebook() {
     this.afAuth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider());
+  }
+
+  loginGoogle() {
+    this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
   }
   logout() {
     this.afAuth.auth.signOut();
