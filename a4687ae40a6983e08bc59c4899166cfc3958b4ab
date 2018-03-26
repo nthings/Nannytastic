@@ -1,0 +1,15 @@
+[ver:1,total:3960]
+src/app/map/map.component.ts:2098,1522076400:150,1522083600:842,1522087200:1106,m
+src/app/map/map.component.html:724,1522083600:642,1522087200:82,m
+src/app/login/login.component.html:414,1522076400:210,1522080000:180,1522083600:24,m
+src/app/map/svg.json:150,1522087200:150,m
+src/app/app.component.html:150,1522087200:150,m
+src/app/app.module.ts:132,1522083600:132,m
+src/app/login/login.component.ts:130,1522076400:90,1522083600:40,m
+src/app/navbar/navbar.component.ts:46,1522087200:46,m
+src/tsconfig.app.json:30,1522076400:30,r
+src/app/map/map.component.css:20,1522083600:20,m
+src/environments/environment.ts:20,1522083600:20,r
+src/environments/environment.prod.ts:20,1522083600:20,r
+src/app/map/svg:20,1522087200:20,d
+src/app/navbar/navbar.component.html:6,1522087200:6,m
