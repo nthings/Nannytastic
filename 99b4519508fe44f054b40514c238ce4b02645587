@@ -1,0 +1,14 @@
+[ver:1,total:6780]
+src/app/map/map.component.ts:3965,1522162800:690,1522166400:2550,1522170000:150,1522173600:50,1522177200:525,m
+src/app/map/map.component.html:770,1522162800:570,1522166400:200,m
+src/app/map/map.component.css:485,1522162800:485,m
+src/app/nanny-info-window/nanny-info-window.component.ts:455,1522162800:70,1522170000:40,1522173600:135,1522177200:210,m
+src/app/nanny-info-window/nanny-info-window.component.html:365,1522162800:10,1522170000:290,1522173600:20,1522177200:45,m
+src/styles.css:220,1522162800:20,1522166400:200,m
+src/app/app.component.html:215,1522166400:215,m
+.angular-cli.json:100,1522162800:100,r
+src/app/app.module.ts:65,1522162800:30,1522173600:35,m
+src/index.html:60,1522162800:30,1522166400:30,m
+package.json:35,1522162800:35,r
+src/app/navbar/navbar.component.css:30,1522166400:30,m
+src/app/navbar/navbar.component.html:15,1522166400:15,r
