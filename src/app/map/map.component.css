@@ -1,6 +1,6 @@
 .map-container {
   position: absolute;
-  top: 0;
+  top: 71.05px;
   right: 0;
   left: 0;
   bottom: 0;
@@ -14,4 +14,15 @@
 
 main {
   padding-top: 70px;
+}
+
+.search-nanny {
+    position: absolute;
+    z-index: 2!important;
+    text-align: center;
+    width: 100%;
+}
+
+.search-nanny-btn {
+  background-color: #ffffae;
 }

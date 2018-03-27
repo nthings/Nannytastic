@@ -9,6 +9,7 @@ azul: #b0c7ff
 body, html {
   height: 100%;
   width: 100%;
+  overflow-x: hidden;
 }
 
 .bg-dark {
@@ -17,4 +18,9 @@ body, html {
 
 .bg-dark a {
   color: #343a40 !important;
+}
+
+.no-padding-sides {
+  padding-left: 0!important;
+  padding-right: 0!important;
 }

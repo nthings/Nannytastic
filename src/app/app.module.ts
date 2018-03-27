@@ -22,6 +22,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { MapComponent } from './map/map.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { NannyInfoWindowComponent } from './nanny-info-window/nanny-info-window.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     AppComponent,
     LoginComponent,
     MapComponent,
-    NavbarComponent
+    NavbarComponent,
+    NannyInfoWindowComponent
   ],
   imports: [
     BrowserModule,
@@ -40,6 +42,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     routes
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [NannyInfoWindowComponent]
 })
 export class AppModule { }
