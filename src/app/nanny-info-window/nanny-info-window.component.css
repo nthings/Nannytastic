@@ -1,0 +1,21 @@
+.name {
+    font-size: 1.5em!important;
+}
+
+.stars {
+    color: #ff94cc;
+}
+
+.picture {
+    width: 50%;
+}
+
+.resumee {
+    max-width: 100%;
+}
+
+.price {
+    font-size: 2em;
+    font-weight: bold;
+    color: #b0c7ff;
+}
