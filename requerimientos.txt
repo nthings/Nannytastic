@@ -1,0 +1,4 @@
+TODO:
+1.- Dar de alta a tus morros. En base a su edad, solo mostrar niñeras que son aptas para su edad.
+
+2.- Agregar categoria en la busqueda. Actividades que la niñera le va a poner al morro mientras lo cuida.

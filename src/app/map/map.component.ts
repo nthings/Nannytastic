@@ -72,7 +72,8 @@ export class MapComponent implements OnInit {
       component.instance.nanny = nanny;
       component.changeDetectorRef.detectChanges();
       const infowindow = new google.maps.InfoWindow({
-        content: component.location.nativeElement
+        content: component.location.nativeElement,
+        maxWidth: 500
       });
       this.markersArray.push({ marker, component});
       // Get closest nanny and open her Info
