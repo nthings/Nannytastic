@@ -1,0 +1,9 @@
+[ver:1,total:5280]
+src/app/nanny-info-window/nanny-info-window.component.html:2881,1522684800:550,1522688400:492,1522695600:1839,m
+src/app/nanny-info-window/nanny-info-window.component.css:1390,1522684800:315,1522688400:456,1522695600:619,m
+src/styles.css:380,1522684800:30,1522688400:12,1522695600:338,m
+src/app/nanny-info-window/nanny-info-window.component.ts:345,1522684800:345,m
+src/app/map/map.component.ts:230,1522177200:180,1522684800:50,r
+src/app/app.component.html:24,1522695600:24,m
+src/app/navbar/navbar.component.ts:15,1522684800:15,r
+src/app/app.component.ts:15,1522684800:15,r
