@@ -15,8 +15,8 @@
                 </div>
                 <div class="col resumee">
                     <span>
-                        {{ nanny.resumee | slice:0:199 }}...
-                        <a href="">Más</a>
+                        {{ nanny.resumee | slice:0:199 }}
+                        <a href="" *ngIf="nanny.resumee.length > 200">...Más</a>
                     </span>
                 </div>
             </div>
