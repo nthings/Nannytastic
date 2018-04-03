@@ -23,6 +23,7 @@ import { LoginComponent } from './login/login.component';
 import { MapComponent } from './map/map.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NannyInfoWindowComponent } from './nanny-info-window/nanny-info-window.component';
+import { KidsComponent } from './kids/kids.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { NannyInfoWindowComponent } from './nanny-info-window/nanny-info-window.
     LoginComponent,
     MapComponent,
     NavbarComponent,
-    NannyInfoWindowComponent
+    NannyInfoWindowComponent,
+    KidsComponent
   ],
   imports: [
     BrowserModule,
