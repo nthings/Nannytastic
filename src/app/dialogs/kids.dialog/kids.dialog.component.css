@@ -1,0 +1,26 @@
+.subtitle{
+    font-size: 18px!important;
+    margin-top: 0px!important;
+    margin-bottom: 0px!important;
+}
+hr{
+    margin-top: 0px!important;
+    margin-bottom: 0px!important;
+}
+.cropper-height{
+    height: 25px;
+}
+
+.equal-cropper-height {
+    line-height: 300px!important;
+    height: 300px!important;
+}
+
+.padding-top{ 
+    padding-top: 10px!important;
+}
+
+.button {
+    padding-left: 25%!important;
+    padding-right: 25%!important;
+}

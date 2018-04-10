@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Location } from '@angular/common';
+declare var $: any;
 
 @Component({
   selector: 'app-navbar',
@@ -18,6 +19,10 @@ export class NavbarComponent implements OnInit {
         this.user = user;
       }
     );
+
+    $('.dropdown-menu').click(function (e) {
+      e.stopPropagation();
+    });
   }
 
   logout() {
@@ -25,5 +30,4 @@ export class NavbarComponent implements OnInit {
     this.location.go('/');
     window.location.reload();
   }
-
 }

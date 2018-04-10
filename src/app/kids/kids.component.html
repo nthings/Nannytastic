@@ -1,13 +1,24 @@
-<main role="main" class="container-fluid content">
-  <div class="row">
-    <div class="col">
-      <h1>Tus Niños</h1>
+<main role="main" class="container">
+  <section class="row">
+    <div class="col-12 text-center">
+      <h1>Tus Hijos</h1>
     </div>
-  </div>
-  <div class="row">
-    <div class="col mx-auto" *ngFor="let kid of kids | async">
-      <img class="picture rounded-circle mx-auto d-block" src="{{ kid.picture == 1 ? kid.picture : 'assets/img/avatar-default.png' }}" width="150px">
-      <p class="text-center">{{kid.name}}</p>
+    <div class="col-12">
+      <button class="btn btn-success btn-block" (click)="addKid()"><i class="fas fa-child"></i><span>Agregar Hijo</span></button>
     </div>
-  </div>
+    <ng-container *ngIf="hasKids">
+      <div class="col mt-5 mx-auto" *ngFor="let kid of kids | async">
+        <img class="picture rounded-circle mx-auto d-block" src="{{ kid.photo ? kid.photo : 'assets/img/avatar-default.png' }}" width="150px">
+        <p class="text-center">{{kid.name}}</p>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="!hasKids">
+      <div class="col mt-5 mx-auto">
+        <h1 class="text-center">NO TIENES HIJOS DADOS DE ALTA</h1>
+      </div>
+    </ng-container>
+  </section>
+  <section class="row">
+
+  </section>
 </main>

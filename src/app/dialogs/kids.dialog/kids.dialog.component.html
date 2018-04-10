@@ -1,0 +1,98 @@
+<div class="modal-header">
+  <h5 class="modal-title" id="kidModalTitle">
+    <i [ngClass]="icon" class="icon pull-left"></i>
+    <span>{{ title }}</span>
+  </h5>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form id="kidForm" class="w-100" [ngClass]="{'was-validated': !formValid}" (ngSubmit)="onSubmit(kidForm)" [formGroup]="kidForm" novalidate>
+    <div class="container-fluid">
+      <div class="row">
+        <div [ngClass]="{'col-12 col-sm-4': !(displayCropper || displayWebcam), 'col-12': (displayCropper || displayWebcam) }">
+          <p>Foto</p>
+          <div class="col-12 equal-cropper-height" *ngIf="displayWebcam">
+            <ack-webcam [(ref)]="webcam" [useParentWidthHeight]="true" (catch)="onCamError($event)"></ack-webcam>
+          </div>
+          <div class="row">
+            <div *ngIf="!displayWebcam" [ngClass]="{'col-xs-12 col-sm-6 my-auto': displayCropper, 'col-12': !displayCropper}">
+              <img class="picture rounded-circle mx-auto d-block" [src]="data.image" [width]="cropperSettings.croppedWidth" [height]="cropperSettings.croppedHeight">
+            </div>
+            <div [ngClass]="{'col-xs-12 col-sm-6 visible my-auto text-center':displayCropper, 'col-12 cropper-height invisible': !displayCropper}">
+              <img-cropper #cropper [image]="data" [settings]="cropperSettings"></img-cropper>
+            </div>
+          </div>
+          <div class="row no-gutters">
+            <div class="col-12" *ngIf="!displayWebcam && !displayCropper">
+              <label class="btn btn-primary btn-fill btn-block">
+                <i class="icon pe-7s-photo"></i>
+                <span *ngIf="data.image === '/assets/img/default-avatar.png'">Subir Foto</span>
+                <span *ngIf="data.image !== '/assets/img/default-avatar.png'">Cambiar Foto</span>
+                <input id="file_input_file" class="none" type="file" style="display: none;"
+                (change)="onChange($event)"/>
+              </label>
+            </div>
+            <div class="col-12 padding-top" *ngIf="!displayWebcam && !displayCropper">
+              <label class="btn btn-primary btn-fill btn-block" (click)="showWebcam()">
+                <i class="icon pe-7s-camera"></i>
+                <span>Tomar Foto</span>
+              </label>
+            </div>
+          </div>
+          <div class="col-12 button" *ngIf="displayCropper">
+            <label class="btn btn-primary btn-fill btn-block" (click)="saveImage()">
+              <i class="icon pe-7s-diskette"></i>
+              Guardar Foto
+            </label>
+          </div>
+          <div class="col-12 button" *ngIf="displayWebcam">
+            <label class="btn btn-primary btn-fill btn-block" (click)="saveImageWebcam()">
+              <i class="icon pe-7s-camera"></i>
+              Capturar Foto
+            </label>
+          </div>
+        </div>
+        <div [ngClass]="{'col-12 col-sm-8': !(displayCropper || displayWebcam), 'col-12': (displayCropper || displayWebcam) }">
+          <div class="col-12">
+            <div class="form-group">
+              <label for="name">Nombre de Tu Hijo</label>
+              <input type="text" class="form-control form-control-lg" id="name" formControlName="name" required placeholder="Nombre">
+              <div class="invalid-feedback">
+                Nombre es requerido
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="form-group">
+              <label for="name">Fecha de Nacimiento</label>
+              <div class="input-group">
+                <input class="form-control form-control-lg" placeholder="yyyy-mm-dd" name="dp" formControlName="birthdate" ngbDatepicker #d="ngbDatepicker" required>
+                <div class="input-group-append">
+                  <button class="btn btn-primary" (click)="d.toggle()" type="button">
+                    <i class="fas fa-calendar"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-6 text-center">
+        <button class="btn btn-default" (click)="activeModal.dismiss('Close click')">Cerrar</button>
+      </div>
+      <div class="col-6 text-center">
+        <button type="submit" form="kidForm" class="btn btn-success">
+          Guardar Hijo
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

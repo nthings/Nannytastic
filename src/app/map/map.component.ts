@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { } from '@types/googlemaps';
 import { Observable } from 'rxjs/Observable';
 import { NannyInfoWindowComponent } from '../nanny-info-window/nanny-info-window.component';
+import { LoaderService } from '../services/loader.service';
 
 const mapStyle = require('./map-style.json');
 const iconSvg = require('./svg.json');
@@ -29,12 +30,15 @@ export class MapComponent implements OnInit {
   nannys: Array<any>;
   markersArray = [];
   userMarker;
+
   constructor(private router: Router,
               private db: AngularFirestore,
               private resolver: ComponentFactoryResolver,
-              private injector: Injector) { }
+              private injector: Injector,
+              private loaderService: LoaderService) { }
 
   ngOnInit() {
+    this.loaderService.showLoader();
     // Initialize google map
     this.map = new google.maps.Map(this.gmapElement.nativeElement, {
       center: new google.maps.LatLng(18.5793, 73.8143),
@@ -48,6 +52,7 @@ export class MapComponent implements OnInit {
       nannys => {
         this.nannys = nannys;
         this.geolocate();
+        this.loaderService.hideLoader();
       }
     );
   }

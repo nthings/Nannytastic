@@ -1,5 +1,4 @@
-.content {
-  position: absolute;
-  top: 80px;
-  width: 100%;
+.container {
+    overflow-y: auto!important;
+    height: 100%!important;
 }
