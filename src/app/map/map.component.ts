@@ -107,9 +107,8 @@ export class MapComponent implements OnInit {
 
   // Get user location and get nannys around him
   geolocate() {
-    window.navigator.geolocation.getCurrentPosition(
+    window.navigator.geolocation.watchPosition(
       (position) => {
-        alert(JSON.stringify(this.position));
         this.position = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
         this.map.setCenter(this.position);
 
@@ -120,9 +119,15 @@ export class MapComponent implements OnInit {
         });
         this.randomizeNannys();
       },
+
       (error) => {
         alert(JSON.stringify(error));
-      });
+      },
+
+      {
+        maximumAge: 0, timeout: 2000, enableHighAccuracy: true
+      }
+    );
   }
 
   // Random coords within map bounds
