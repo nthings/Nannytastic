@@ -109,6 +109,7 @@ export class MapComponent implements OnInit {
   geolocate() {
     window.navigator.geolocation.getCurrentPosition(
       (position) => {
+        alert(JSON.stringify(this.position));
         this.position = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
         this.map.setCenter(this.position);
 
@@ -118,6 +119,9 @@ export class MapComponent implements OnInit {
           title: 'Got you!'
         });
         this.randomizeNannys();
+      },
+      (error) => {
+        alert(error);
       });
   }
 
