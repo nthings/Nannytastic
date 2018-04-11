@@ -10,6 +10,7 @@ import 'rxjs/add/operator/startWith';
 import 'rxjs/add/operator/map';
 import { LoaderService } from '../../services/loader.service';
 import { Kid } from '../../models/kid.model';
+import { DeviceDetectorService } from 'ngx-device-detector';
 @Component({
   selector: 'app-kids-dialog',
   templateUrl: './kids.dialog.component.html',
@@ -35,12 +36,14 @@ export class KidsDialogComponent implements OnInit {
 
   user;
   formValid = true;
+  deviceInfo;
   // public dialogRef: MatDialogRef<KidsDialogComponent>,
   // @Inject(MAT_DIALOG_DATA) public kidData: any
   constructor(public activeModal: NgbActiveModal,
               public afAuth: AngularFireAuth,
               private db: AngularFirestore,
-              private loaderService: LoaderService) { }
+              private loaderService: LoaderService,
+              private deviceService: DeviceDetectorService) { }
 
   ngOnInit() {
     this.cropperSettings.width = 250;
@@ -58,6 +61,9 @@ export class KidsDialogComponent implements OnInit {
         this.user = user;
       }
     );
+
+    this.deviceInfo = this.deviceService.getDeviceInfo();
+    console.log(this.deviceInfo);
   }
 
   onChange($event: any): void {

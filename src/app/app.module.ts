@@ -19,7 +19,7 @@ export const firebaseConfig = {
   messagingSenderId: '1087214681331'
 };
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
+import { DeviceDetectorModule } from 'ngx-device-detector';
 
 import { routes } from './app.routes';
 
@@ -56,7 +56,8 @@ import { LoaderService } from './services/loader.service';
     routes,
     ImageCropperModule,
     WebCamModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    DeviceDetectorModule.forRoot()
   ],
   providers: [LoaderService],
   bootstrap: [AppComponent],

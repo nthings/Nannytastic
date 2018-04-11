@@ -38,6 +38,7 @@
     "font-awesome": "^4.7.0",
     "express": "^4.16.3",
     "jquery": "^3.3.1",
+    "ngx-device-detector": "^1.2.2",
     "ngx-img-cropper": "^0.10.2",
     "popper.js": "^1.14.1",
     "rxjs": "^5.5.6",

@@ -34,7 +34,7 @@
                 (change)="onChange($event)"/>
               </label>
             </div>
-            <div class="col-12 padding-top" *ngIf="!displayWebcam && !displayCropper">
+            <div class="col-12 padding-top" *ngIf="!displayWebcam && !displayCropper && !this.deviceInfo.os === 'android'">
               <label class="btn btn-primary btn-fill btn-block" (click)="showWebcam()">
                 <i class="icon pe-7s-camera"></i>
                 <span>Tomar Foto</span>
