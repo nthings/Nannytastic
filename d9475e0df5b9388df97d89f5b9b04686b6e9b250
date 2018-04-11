@@ -1,0 +1,13 @@
+[ver:1,total:1440]
+src/app/dialogs/kids.dialog/kids.dialog.component.html:412,1523469600:360,1523473200:52,m
+protractor.conf.js:180,1523458800:180,r
+src/app/nanny-info-window/nanny-info-window.component.html:162,1523458800:150,1523462400:12,m
+src/app/map/map.component.ts:162,1523458800:30,1523462400:132,r
+src/app/dialogs/kids.dialog/kids.dialog.component.ts:126,1523473200:126,m
+src/app/kids/kids.component.ts:120,1523473200:120,r
+src/app/kids/kids.component.html:80,1523473200:80,m
+src/app/nanny-info-window/nanny-info-window.component.css:72,1523462400:12,1523473200:60,m
+src/app/app.module.ts:42,1523473200:42,m
+src/app/map/map.component.html:30,1523458800:30,r
+src/app/guards/auth.service.ts:30,1523458800:30,r
+package.json:24,1523462400:24,m
