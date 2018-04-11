@@ -121,7 +121,7 @@ export class MapComponent implements OnInit {
         this.randomizeNannys();
       },
       (error) => {
-        alert(error);
+        alert(JSON.stringify(error));
       });
   }
 
