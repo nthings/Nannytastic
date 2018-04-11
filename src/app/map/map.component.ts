@@ -47,6 +47,12 @@ export class MapComponent implements OnInit {
       styles: mapStyle
     });
 
+    this.userMarker = new google.maps.Marker({
+      position: new google.maps.LatLng(18.5793, 73.8143),
+      map: this.map,
+      title: 'Got you!'
+    });
+
     // Get nannys from Firebase and randomly put markers in the map
     this.db.collection('/nannys').valueChanges().subscribe(
       nannys => {
@@ -55,6 +61,7 @@ export class MapComponent implements OnInit {
         this.loaderService.hideLoader();
       }
     );
+
   }
 
   // Sets random coordinates to nannys markers and open the closest
@@ -111,17 +118,12 @@ export class MapComponent implements OnInit {
       (position) => {
         this.position = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
         this.map.setCenter(this.position);
-
-        this.userMarker = new google.maps.Marker({
-          position: this.position,
-          map: this.map,
-          title: 'Got you!'
-        });
+        this.userMarker.setPosition(this.position);
         this.randomizeNannys();
       },
 
       (error) => {
-        alert(JSON.stringify(error));
+        alert(error.message);
       },
 
       {
@@ -143,6 +145,7 @@ export class MapComponent implements OnInit {
   // Set user position in the center of map and get nannys
   searchInThisArea() {
     this.userMarker.setPosition(this.map.getBounds().getCenter());
+    this.map.setCenter(this.map.getBounds().getCenter());
     this.randomizeNannys();
   }
 }
