@@ -1,0 +1,9 @@
+[ver:1,total:6180]
+src/app/kids/kids.component.ts:2298,1523901600:639,1523905200:1134,1523908800:525,m
+src/app/dialogs/kids.dialog/kids.dialog.component.ts:1775,1523901600:80,1523905200:1675,1523908800:20,m
+src/app/kids/kids.component.html:1213,1523473200:180,1523901600:846,1523905200:32,1523908800:155,m
+src/app/kids/kids.component.css:646,1523901600:426,1523905200:220,m
+src/styles.css:173,1523901600:114,1523905200:59,m
+src/app/dialogs/kids.dialog/kids.dialog.component.html:50,1523901600:30,1523908800:20,r
+src/app/nanny-info-window/nanny-info-window.component.html:17,1523901600:17,r
+src/app/nanny-info-window/nanny-info-window.component.css:8,1523901600:8,r
