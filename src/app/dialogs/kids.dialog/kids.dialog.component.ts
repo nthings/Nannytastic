@@ -17,6 +17,7 @@ import { DeviceDetectorService } from 'ngx-device-detector';
   styleUrls: ['./kids.dialog.component.css']
 })
 export class KidsDialogComponent implements OnInit {
+  @Input() kidData;
   title: String = 'Agregar Hijo';
   icon: String = 'fas fa-child';
   edit: Boolean = false;
@@ -37,6 +38,7 @@ export class KidsDialogComponent implements OnInit {
   user;
   formValid = true;
   deviceInfo;
+
   // public dialogRef: MatDialogRef<KidsDialogComponent>,
   // @Inject(MAT_DIALOG_DATA) public kidData: any
   constructor(public activeModal: NgbActiveModal,
@@ -63,7 +65,13 @@ export class KidsDialogComponent implements OnInit {
     );
 
     this.deviceInfo = this.deviceService.getDeviceInfo();
-    console.log(this.deviceInfo);
+    if (this.kidData) {
+      this.edit = true;
+      this.kidForm.patchValue(this.kidData);
+      if (this.kidData.photo) {
+        this.data.image = this.kidData.photo;
+      }
+    }
   }
 
   onChange($event: any): void {
@@ -109,14 +117,23 @@ export class KidsDialogComponent implements OnInit {
     if (kidForm.valid) {
       this.formValid = true;
       const kid: Kid = kidForm.value;
-      // this.dialogRef.close(kidForm.value);
       this.loaderService.showLoader();
-      kid.parent = this.user.uid;
-      this.db.collection<Kid>('/kids').add(kid).then(
-        kidInserted => {
-          this.activeModal.close(kid);
-        }
-      );
+
+      if (this.edit) {
+        this.db.doc<Kid>(`/kids/${this.kidData.id}`).update(kid).then(
+          kidUpdated => {
+            this.activeModal.close(kid);
+          }
+        );
+      } else {
+        kid.parent = this.user.uid;
+        this.db.collection<Kid>('/kids').add(kid).then(
+          kidInserted => {
+            this.activeModal.close(kidInserted);
+          }
+        );
+      }
+
     } else {
       this.formValid = false;
     }

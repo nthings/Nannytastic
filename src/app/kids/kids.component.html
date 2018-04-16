@@ -7,8 +7,16 @@
       <button class="btn btn-success btn-block" (click)="addKid()"><i class="fas fa-child"></i><span>Agregar Hijo</span></button>
     </div>
     <ng-container *ngIf="hasKids">
-      <div class="col mt-5 mx-auto" *ngFor="let kid of kids | async">
-        <img class="picture rounded-circle mx-auto d-block" src="{{ kid.photo ? kid.photo : 'assets/img/avatar-default.png' }}" width="150px">
+      <div class="col mt-5 mx-auto" *ngFor="let kid of kids | async; let i = index">
+        <div class="image" onclick="void(0)">
+          <img class="picture rounded-circle mx-auto d-block" src="{{ kid.photo ? kid.photo : 'assets/img/avatar-default.png' }}" width="150px">
+          <div class="overlay mx-auto">
+            <div class="buttons">
+              <button (click)="showEditKid(kid, i)" type="button" class="btn btn-primary btn-block"><i class="fas fa-edit"></i> Editar</button>
+              <button (click)="showDeleteKid(kid, i)" type="button" class="btn btn-secondary btn-block"><i class="fas fa-trash"></i> Eliminar</button>
+            </div>
+          </div>
+        </div>
         <p class="text-center">{{kid.name}}</p>
       </div>
     </ng-container>

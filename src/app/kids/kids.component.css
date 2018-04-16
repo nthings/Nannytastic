@@ -2,3 +2,32 @@
     overflow-y: auto!important;
     height: 100%!important;
 }
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 150px;
+  width: 150px;
+  opacity: 0;
+  transition: .2s ease;
+  background-color: #b0c7ff;
+  border-radius: 50%;
+}
+
+.image:hover .overlay,
+.image:focus .overlay {
+  opacity: 1;
+}
+
+.buttons {
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}

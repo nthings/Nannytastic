@@ -24,3 +24,9 @@ body, html {
   background-color: #ff94cc!important;
   border-color: #ff94cc!important;
 }
+
+.btn-secondary, .btn-secondary:hover, .btn-secondary:active, .btn-secondary:focus {
+  background-color: #ffffae!important;
+  border-color: #ffffae!important;
+  color: #27253f;
+}
