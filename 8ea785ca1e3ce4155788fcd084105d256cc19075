@@ -1,0 +1,13 @@
+[ver:1,total:5460]
+src/app/map/map.component.css:1705,1524517200:567,1524520800:298,1524585600:110,1524596400:730,m
+src/app/map/map.component.html:1565,1524517200:279,1524520800:147,1524585600:504,1524596400:635,m
+src/app/map/nannys-categories.json:453,1524517200:125,1524520800:38,1524596400:290,r
+src/app/map/map.component.ts:394,1524517200:154,1524520800:49,1524585600:46,1524596400:145,m
+src/app/navbar/navbar.component.html:386,1524258000:386,m
+src/app/kids/kids.component.html:372,1524258000:372,m
+src/app/navbar/navbar.component.css:220,1524258000:220,r
+src/app/kids/kids.component.ts:150,1524258000:150,r
+src/app/nanny-info-window/nanny-info-window.component.html:102,1524258000:102,r
+src/app/dialogs/kids.dialog/kids.dialog.component.html:60,1524258000:30,1524517200:30,m
+src/app/map/svg.json:30,1524517200:30,r
+src/styles.css:23,1524517200:15,1524520800:8,r
