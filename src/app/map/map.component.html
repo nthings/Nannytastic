@@ -8,3 +8,21 @@
 <div class="search-nanny">
     <button class="btn search-nanny-btn" (click)="searchInThisArea()"><i class="fas fa-street-view"></i><span>BUSCAR EN ÉSTA ÁREA</span></button>
 </div>
+<button role="button" class="btn toggle-collapse" (click)="toggleCategory()">
+    <span>Actividades</span>
+    <span *ngIf="!showCategory">
+        <i class="fas fa-arrow-up"></i>
+    </span>
+    <span *ngIf="showCategory">
+        <i class="fas fa-arrow-down"></i>
+    </span>
+</button>
+
+<div id="collapse" [ngClass]="{'in': showCategory}" class="categories rounded-top">
+    <h5 class="text-center">Actividades</h5>
+    <ul>
+        <li *ngFor="let category of categories">
+            <button class="btn category-nanny-btn btn-block" (click)="queryCategory(category.value)"><i class="fas {{ category.icon }}"></i> {{ category.name }}</button>
+        </li>
+    </ul>
+</div>

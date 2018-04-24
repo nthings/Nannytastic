@@ -8,6 +8,7 @@ import { LoaderService } from '../services/loader.service';
 
 const mapStyle = require('./map-style.json');
 const iconSvg = require('./svg.json');
+const categories = require('./nannys-categories.json');
 const nannyIcon = {
   path: iconSvg.svg,
   fillColor: '#ff94cc',
@@ -30,6 +31,9 @@ export class MapComponent implements OnInit {
   nannys: Array<any>;
   markersArray = [];
   userMarker;
+  // Exposing categories JSON
+  categories = categories;
+  showCategory = false;
 
   constructor(private router: Router,
               private db: AngularFirestore,
@@ -147,5 +151,10 @@ export class MapComponent implements OnInit {
     this.userMarker.setPosition(this.map.getBounds().getCenter());
     this.map.setCenter(this.map.getBounds().getCenter());
     this.randomizeNannys();
+  }
+
+  toggleCategory() {
+    this.showCategory = !this.showCategory;
+    return this.showCategory;
   }
 }

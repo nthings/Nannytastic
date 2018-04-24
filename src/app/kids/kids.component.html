@@ -4,7 +4,7 @@
       <h1>Tus Hijos</h1>
     </div>
     <div class="col-12">
-      <button class="btn btn-success btn-block" (click)="addKid()"><i class="fas fa-child"></i><span>Agregar Hijo</span></button>
+      <button class="btn btn-primary btn-block" (click)="addKid()"><i class="fas fa-child"></i><span>Agregar Hijo</span></button>
     </div>
     <ng-container *ngIf="hasKids">
       <div class="col mt-5 mx-auto" *ngFor="let kid of kids | async; let i = index">

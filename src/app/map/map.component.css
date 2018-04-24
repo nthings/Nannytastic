@@ -13,7 +13,7 @@
 }
 
 main {
-  padding-top: 70px;
+  padding-top: 75px;
 }
 
 .search-nanny {
@@ -25,4 +25,48 @@ main {
 
 .search-nanny-btn {
   background-color: #ffffae;
+}
+
+.category-nanny-btn {
+  background-color: #ffffae;
+}
+
+.toggle-collapse {
+  width: 150px;
+  background-color: #b0c7ff;
+  position: absolute;
+  bottom: 0;
+  z-index: 3!important;
+}
+
+.categories ul {
+  list-style: none;
+  padding: 5px!important;
+  width: 150px;
+}
+
+.categories ul li {
+  padding: 5px; 
+}
+
+/* Horizontal collapse */
+#collapse {
+  -webkit-transition: height 1s ease;
+  -moz-transition: height 1s ease;
+  -o-transition: height 1s ease;
+  transition: height 1s ease;
+  width: 150px;
+  height: 0px;
+  background-color: #b0c7ff;
+  position: absolute;
+  bottom: 0;
+  z-index: 2!important;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-bottom: 28px;
+}
+
+#collapse.in {
+  height: 250px;
 }
