@@ -21,10 +21,5 @@ export class AppComponent {
       }
     );
     this.user = this.afAuth.authState;
-    this.user.subscribe(
-      user => {
-        console.log(user);
-      }
-    );
   }
 }

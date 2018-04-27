@@ -3,6 +3,12 @@
         <div class="row">
             <div class="col-sm">
                 <img class="picture rounded mx-auto d-block" src="assets/img/avatar-default.png">
+                <div class="row no-gutters">
+                    <div class="col d-block text-center pt-2 rosa" *ngFor="let category of categories">
+                        <i class="fas {{ category.icon }} icon"></i> 
+                        <p class="m-0">{{ category.name }}</p>
+                    </div>
+                </div>
             </div>
             <div class="col-sm">
                 <div class="col">

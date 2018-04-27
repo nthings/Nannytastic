@@ -2,6 +2,21 @@
   <h1>Redireccionando...</h1>
 </div>
 <ng-template #showLogin>
-  <button (click)="loginFacebook()">Entra con Facebook</button>
-  <button (click)="loginGoogle()">Entra con Google</button>
+  <div class="container h-100">
+    <div class="row align-items-center h-100">
+      <div class="col">
+        <div class="col-12 mx-auto text-center">
+          <img src="assets/img/logo.png" width="50%" class="picture mx-auto d-block">
+        </div>
+        <div class="row">
+          <div class="col-sm pt-5 pt-sm-0 text-center">
+            <button class="btn btn-block facebook" (click)="loginFacebook()"><i class="fab fa-facebook-f"></i> Entra con Facebook</button>
+          </div>
+          <div class="col-sm pt-5 pt-sm-0 text-center">
+            <button class="btn btn-block google" (click)="loginGoogle()"><i class="fab fa-google"></i> Entra con Google</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </ng-template>

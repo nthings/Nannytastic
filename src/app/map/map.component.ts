@@ -8,7 +8,6 @@ import { LoaderService } from '../services/loader.service';
 
 const mapStyle = require('./map-style.json');
 const iconSvg = require('./svg.json');
-const categories = require('./nannys-categories.json');
 const nannyIcon = {
   path: iconSvg.svg,
   fillColor: '#ff94cc',
@@ -17,6 +16,7 @@ const nannyIcon = {
   strokeWeight: 0,
   scale: 0.1
 };
+declare var $: any;
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
@@ -30,9 +30,11 @@ export class MapComponent implements OnInit {
 
   nannys: Array<any>;
   markersArray = [];
+  markersBackup = [];
+  infoWindows = [];
   userMarker;
   // Exposing categories JSON
-  categories = categories;
+  categories = [];
   showCategory = false;
 
   constructor(private router: Router,
@@ -66,17 +68,24 @@ export class MapComponent implements OnInit {
       }
     );
 
+    this.db.collection('/categories').valueChanges().subscribe(
+      categories => {
+        this.categories = categories;
+      }
+    );
+
   }
 
   // Sets random coordinates to nannys markers and open the closest
-  randomizeNannys() {
+  randomizeNannys(nannys, random) {
     this.clearOverlays();
+    const that = this;
     const distances = [];
     let closest = -1;
     let i = 0;
-    for (const nanny of this.nannys) {
+    for (const nanny of nannys) {
       const marker = new google.maps.Marker({
-        position: this.randomMarker(this.map.getBounds()),
+        position: ( random ? this.randomMarker(this.map.getBounds()) : nanny.position ),
         map: this.map,
         icon: nannyIcon,
         title: (<any>nanny).name
@@ -91,7 +100,8 @@ export class MapComponent implements OnInit {
         content: component.location.nativeElement,
         maxWidth: 500
       });
-      this.markersArray.push({ marker, component});
+      this.markersArray.push({ marker, component, nanny});
+      this.infoWindows.push(infowindow);
       // Get closest nanny and open her Info
       distances[i] = google.maps.geometry.spherical.computeDistanceBetween(
         this.markersArray[i].marker.position, this.userMarker.getPosition()
@@ -100,11 +110,22 @@ export class MapComponent implements OnInit {
         closest = i;
       }
       marker.addListener('click', function () {
-        infowindow.open(this.map, marker);
+        for (const infowindowc of that.infoWindows) {
+          infowindowc.close();
+        }
+        infowindow.open(that.map, marker);
       });
       i++;
     }
+    if (this.markersBackup.length < this.markersArray.length) {
+      this.markersBackup = $.extend([], this.markersArray);
+    }
     google.maps.event.trigger(this.markersArray[closest].marker, 'click');
+    google.maps.event.addListener(this.map, 'click', function () {
+      for (const infowindow of that.infoWindows) {
+        infowindow.close();
+      }
+    });
   }
 
   // Remove all nannys markers from map
@@ -123,7 +144,7 @@ export class MapComponent implements OnInit {
         this.position = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
         this.map.setCenter(this.position);
         this.userMarker.setPosition(this.position);
-        this.randomizeNannys();
+        this.randomizeNannys(this.nannys, true);
       },
 
       (error) => {
@@ -150,11 +171,22 @@ export class MapComponent implements OnInit {
   searchInThisArea() {
     this.userMarker.setPosition(this.map.getBounds().getCenter());
     this.map.setCenter(this.map.getBounds().getCenter());
-    this.randomizeNannys();
+    this.randomizeNannys(this.nannys, true);
   }
 
   toggleCategory() {
     this.showCategory = !this.showCategory;
     return this.showCategory;
+  }
+
+  queryCategory(category) {
+    if (category === 'all') {
+      this.randomizeNannys(this.nannys, true);
+    } else {
+      const nannys = this.markersBackup
+                      .filter((marker) => marker.nanny.categories.indexOf(category) > -1)
+                      .map((marker) => $.extend(marker.nanny, {position: marker.marker.getPosition()}));
+      this.randomizeNannys(nannys, false);
+    }
   }
 }

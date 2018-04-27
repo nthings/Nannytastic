@@ -21,6 +21,9 @@
 <div id="collapse" [ngClass]="{'in': showCategory}" class="categories rounded-top">
     <h5 class="text-center">Actividades</h5>
     <ul>
+        <li>
+            <button class="btn category-nanny-btn btn-block" (click)="queryCategory('all')"><i class="fas fa-plus"></i> Todas</button>
+        </li>
         <li *ngFor="let category of categories">
             <button class="btn category-nanny-btn btn-block" (click)="queryCategory(category.value)"><i class="fas {{ category.icon }}"></i> {{ category.name }}</button>
         </li>

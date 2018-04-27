@@ -1,6 +1,6 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <app-loading [hidden]="!showLoader"></app-loading>
-<div class="container-fluid px-0">
+<div class="container-fluid px-0 h-100 background">
     <app-navbar *ngIf="user | async"></app-navbar>
     <router-outlet></router-outlet>
 </div>

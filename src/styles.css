@@ -30,3 +30,15 @@ body, html {
   border-color: #ffffae!important;
   color: #27253f;
 }
+
+.rosa {
+  color: #ff94cc;
+}
+
+.azul {
+  color: #b0c7ff;
+}
+
+.background {
+    background-color: #b0c7ff;
+}

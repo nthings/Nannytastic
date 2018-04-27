@@ -20,21 +20,29 @@ export class LoginComponent implements OnInit {
     // If user doesn't exists in firestore; save it. Else redirect to the map
     this.afAuth.authState.subscribe(
       user => {
-        this.db.collection('/users').doc(user.uid).valueChanges().subscribe(
-          userFromDB => {
-            if (userFromDB) {
-              this.router.navigate(['/map']);
-            } else {
-              this.db.collection('/users').doc(user.uid).set({
-                displayName: user.displayName,
-                email: user.email,
-                photoURL: user.photoURL
-              });
+        if (user) {
+          this.db.collection('/users').doc(user.uid).valueChanges().subscribe(
+            userFromDB => {
+              if (userFromDB && this.noUserChanged(userFromDB, user)) {
+                this.router.navigate(['/map']);
+              } else {
+                this.db.collection('/users').doc(user.uid).set({
+                  displayName: user.displayName,
+                  email: user.email,
+                  photoURL: user.photoURL
+                });
+              }
             }
-          }
-        );
+          );
+        }
       }
     );
+  }
+
+  noUserChanged(userFromDB, user) {
+    return userFromDB.displayName === user.displayName ||
+           userFromDB.email === user.email ||
+           userFromDB.photoURL === user.photo;
   }
 
   loginFacebook() {
