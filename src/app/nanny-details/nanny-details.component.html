@@ -1,0 +1,65 @@
+<main role="main" class="container-fluid">
+  <div class="row">
+    <div class="container-fluid pt-5">
+      <div class="row">
+        <div class="col-12">
+          <div id="photoCarousel" class="carousel slide w-75 mx-auto" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#photoCarousel" data-slide-to="0" class="active"></li>
+              <li data-target="#photoCarousel" data-slide-to="1"></li>
+              <li data-target="#photoCarousel" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img class="d-block w-100" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22800%22%20height%3D%22400%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%20400%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_163219c4cdf%20text%20%7B%20fill%3A%23555%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A40pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_163219c4cdf%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22285.921875%22%20y%3D%22217.7%22%3EFirst%20slide%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E">
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22800%22%20height%3D%22400%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%20400%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_163219c4ce2%20text%20%7B%20fill%3A%23444%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A40pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_163219c4ce2%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23666%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22247.3203125%22%20y%3D%22217.7%22%3ESecond%20slide%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E">
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22800%22%20height%3D%22400%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%20400%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_163219c4ce3%20text%20%7B%20fill%3A%23333%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A40pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_163219c4ce3%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23555%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22277%22%20y%3D%22217.7%22%3EThird%20slide%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E">
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#photoCarousel" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Anterior</span>
+            </a>
+            <a class="carousel-control-next" href="#photoCarousel" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Siguiente</span>
+            </a>
+          </div>
+        </div>
+        <div class="col-12">
+          <h1>{{ nanny?.name }}</h1>
+          <p>{{ nanny?.resumee }}</p>
+          <p class="price text-justify">{{ nanny?.price | currency:'MXN' }} / noche</p>
+          <div class="row">
+            <div class="col d-block text-center py-2 rosa" *ngFor="let category of categories">
+              <i class="fas {{ category.icon }} icon"></i>
+              <p class="m-0">{{ category.name }}</p>
+            </div>
+          </div>
+          <div class="w-100 text-center">
+            <button class="btn btn-primary buy-button"><i class="fas fa-credit-card"></i> Contratar</button>
+          </div>
+        </div>
+        <div class="col-12 mt-2">
+          <h2>Reseñas</h2>
+          <div class="col stars">
+             {{ nanny?.stars }} / 5
+            <ng-container *ngFor="let star of stars | async">
+              <i class="fas fa-star"></i>
+            </ng-container>
+            <ng-container *ngFor="let remainingStar of remainingStars | async">
+              <i class="fas fa-star remainingStar"></i>
+            </ng-container>
+          </div>
+          <div class="col-12" *ngFor="let review of reviews | async">
+            {{ review.review }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

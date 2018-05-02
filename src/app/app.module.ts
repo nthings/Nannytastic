@@ -33,6 +33,7 @@ import { LoadingComponent } from './loading/loading.component';
 import { KidsDialogComponent } from './dialogs/kids.dialog/kids.dialog.component';
 
 import { LoaderService } from './services/loader.service';
+import { NannyDetailsComponent } from './nanny-details/nanny-details.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +43,8 @@ import { LoaderService } from './services/loader.service';
     NannyInfoWindowComponent,
     KidsComponent,
     LoadingComponent,
-    KidsDialogComponent
+    KidsDialogComponent,
+    NannyDetailsComponent
   ],
   imports: [
     BrowserModule,

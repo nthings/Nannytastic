@@ -1,7 +1,6 @@
 import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { AngularFirestore } from 'angularfire2/firestore';
-import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/observable/range';
 import 'rxjs/add/operator/toArray';
 

@@ -33,7 +33,6 @@ export class MapComponent implements OnInit {
   markersBackup = [];
   infoWindows = [];
   userMarker;
-  // Exposing categories JSON
   categories = [];
   showCategory = false;
 
@@ -180,6 +179,7 @@ export class MapComponent implements OnInit {
   }
 
   queryCategory(category) {
+    this.toggleCategory();
     if (category === 'all') {
       this.randomizeNannys(this.nannys, true);
     } else {

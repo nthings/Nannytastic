@@ -42,3 +42,25 @@ body, html {
 .background {
     background-color: #b0c7ff;
 }
+
+.price {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #b0c7ff;
+}
+
+.stars {
+    color: #ff94cc;
+}
+
+.name {
+    font-size: 1.5em!important;
+}
+
+.icon {
+    font-size: 21pt;
+}
+
+.remainingStar {
+  color: rgba(255, 148, 204, 0.5);
+}
