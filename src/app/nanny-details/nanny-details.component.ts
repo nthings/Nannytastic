@@ -1,9 +1,11 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, ComponentFactoryResolver, Component, Injector, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { Subject } from 'rxjs/Subject';
 import { LoaderService } from '../services/loader.service';
 import { ActivatedRoute } from '@angular/router';
+import { PaypalButtonComponent } from '../paypal-button/paypal-button.component';
+import Swal from 'sweetalert2';
 import 'rxjs/add/observable/range';
 import 'rxjs/add/operator/toArray';
 
@@ -17,14 +19,20 @@ export class NannyDetailsComponent implements OnInit {
   nannyAsync;
   reviews;
   stars;
+  reviewUser;
   remainingStars;
   categories;
   queryNannys$ = new Subject<string>();
   queryReviews$ = new Subject<string>();
+  queryUser$ = new Subject<string>();
+  Observable = Observable;
+
   constructor(private db: AngularFirestore,
               private loaderService: LoaderService,
               private cdr: ChangeDetectorRef,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private resolver: ComponentFactoryResolver,
+              private injector: Injector) { }
 
   ngOnInit() {
     this.loaderService.showLoader();
@@ -40,17 +48,25 @@ export class NannyDetailsComponent implements OnInit {
           });
         })
     );
+
     this.reviews = this.queryReviews$.switchMap(nanny =>
       this.db.collection('/reviews', ref => ref.where('nanny', '==', nanny)).snapshotChanges()
         .map(changes => {
           return changes.map(change => {
             const data = change.payload.doc.data();
+            this.db.collection('/users').snapshotChanges()
+              .map(
+                usersChanges => {
+                  return usersChanges.filter(userChange => data.user === userChange.payload.doc.id);
+                }
+              )
+              .map(users => users[0].payload.doc.data())
+              .subscribe(user => data.user = user);
+            delete data.nanny;
             return data;
           });
         })
     );
-
-    this.reviews.subscribe(reviews => console.log(reviews));
 
     // Subscriptions to the queries
     this.nannyAsync.subscribe(
@@ -77,6 +93,21 @@ export class NannyDetailsComponent implements OnInit {
     );
 
     this.queryNannys$.next(this.route.snapshot.paramMap.get('name'));
+  }
+
+  openPayDialog() {
+    console.log('im here');
+    const factory = this.resolver.resolveComponentFactory(PaypalButtonComponent);
+    const component = factory.create(this.injector);
+    component.instance.price = this.nanny.price;
+    component.changeDetectorRef.detectChanges();
+    console.log(component.location.nativeElement);
+    Swal({
+      title: 'Pagar',
+      html: component.location.nativeElement,
+      confirmButtonColor: '#ff94cc',
+      confirmButtonText: 'Cancelar'
+    })
   }
 
 }

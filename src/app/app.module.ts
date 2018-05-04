@@ -34,6 +34,7 @@ import { KidsDialogComponent } from './dialogs/kids.dialog/kids.dialog.component
 
 import { LoaderService } from './services/loader.service';
 import { NannyDetailsComponent } from './nanny-details/nanny-details.component';
+import { PaypalButtonComponent } from './paypal-button/paypal-button.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +45,8 @@ import { NannyDetailsComponent } from './nanny-details/nanny-details.component';
     KidsComponent,
     LoadingComponent,
     KidsDialogComponent,
-    NannyDetailsComponent
+    NannyDetailsComponent,
+    PaypalButtonComponent
   ],
   imports: [
     BrowserModule,
@@ -63,6 +65,10 @@ import { NannyDetailsComponent } from './nanny-details/nanny-details.component';
   ],
   providers: [LoaderService],
   bootstrap: [AppComponent],
-  entryComponents: [NannyInfoWindowComponent, KidsDialogComponent]
+  entryComponents: [
+    NannyInfoWindowComponent,
+    KidsDialogComponent,
+    PaypalButtonComponent
+  ]
 })
 export class AppModule { }

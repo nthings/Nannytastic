@@ -32,6 +32,15 @@
         </div>
         <div class="col-12">
           <h1>{{ nanny?.name }}</h1>
+          <div class="col stars">
+            {{ nanny?.stars }} / 5
+            <ng-container *ngFor="let star of stars | async">
+              <i class="fas fa-star"></i>
+            </ng-container>
+            <ng-container *ngFor="let remainingStar of remainingStars | async">
+              <i class="fas fa-star remainingStar"></i>
+            </ng-container>
+          </div>
           <p>{{ nanny?.resumee }}</p>
           <p class="price text-justify">{{ nanny?.price | currency:'MXN' }} / noche</p>
           <div class="row">
@@ -41,22 +50,34 @@
             </div>
           </div>
           <div class="w-100 text-center">
-            <button class="btn btn-primary buy-button"><i class="fas fa-credit-card"></i> Contratar</button>
+            <button class="btn btn-primary buy-button" (click)="openPayDialog()"><i class="fas fa-credit-card"></i> Contratar</button>
           </div>
         </div>
-        <div class="col-12 mt-2">
-          <h2>Reseñas</h2>
-          <div class="col stars">
-             {{ nanny?.stars }} / 5
-            <ng-container *ngFor="let star of stars | async">
-              <i class="fas fa-star"></i>
-            </ng-container>
-            <ng-container *ngFor="let remainingStar of remainingStars | async">
-              <i class="fas fa-star remainingStar"></i>
-            </ng-container>
-          </div>
-          <div class="col-12" *ngFor="let review of reviews | async">
-            {{ review.review }}
+        <div class="col-12 my-2">
+          <h2>Reseñas ({{ (reviews | async)?.length }})</h2>
+          <div class="row">
+            <div class="col-md-4 card m-2" *ngFor="let review of reviews | async">
+              <div class="card-body row">
+                <div class="col-lg-4">
+                  <img class="rounded-circle mx-auto d-block" width="80%" src="{{ review.user.photoURL }}">
+                </div>
+                <div class="col-lg-8">
+                  <div class="col-12">
+                    <h3>{{ review.user.displayName }}</h3>
+                  </div>
+                  <div class="col-12 stars">
+                     {{ review.stars }} / 5
+                    <ng-container *ngFor="let star of Observable.range(0, review.stars).toArray() | async">
+                      <i class="fas fa-star"></i>
+                    </ng-container>
+                    <ng-container *ngFor="let remainingStar of Observable.range(0, 5 - review.stars).toArray() | async">
+                      <i class="fas fa-star remainingStar"></i>
+                    </ng-container>
+                  </div>
+                  <p class="col-12">{{ review.review }}</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
