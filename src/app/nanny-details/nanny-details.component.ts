@@ -107,7 +107,7 @@ export class NannyDetailsComponent implements OnInit {
       html: component.location.nativeElement,
       confirmButtonColor: '#ff94cc',
       confirmButtonText: 'Cancelar'
-    })
+    });
   }
 
 }
