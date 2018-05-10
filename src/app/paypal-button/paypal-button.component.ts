@@ -1,5 +1,6 @@
 import { AfterViewChecked, Component, Input, OnInit } from '@angular/core';
 declare let paypal: any;
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-paypal-button',
   templateUrl: './paypal-button.component.html',
@@ -11,10 +12,12 @@ export class PaypalButtonComponent implements OnInit, AfterViewChecked {
 
   didPaypalScriptLoad: Boolean = false;
 
+  date;
+
   paypalConfig: any = {
     env: 'sandbox',
     client: {
-      sandbox: 'AWlMGZwpQbS0dq_r2Dt0ejp1TxDm72JD7Pt4Uc2mYlihAE3FU5axxS9wr4HcnVc13gB7TcbYDVLp9Vne',
+      sandbox: 'AboF0MDXP1-5QwQaHsxqlThhBuYHx3rKycr1Q6y7gH5PdbKm3eqMSIv93ybmYauEY5qsE8I9oslPn15z',
       production: 'xxxxxxxxxx'
     },
     commit: true,
@@ -30,7 +33,7 @@ export class PaypalButtonComponent implements OnInit, AfterViewChecked {
     onAuthorize: (data, actions) => {
       return actions.payment.execute().then((payment) => {
         // show success page
-        console.log(payment);
+        Swal('Si!', 'Tu niñera va en camino', 'success');
       });
     }
   };

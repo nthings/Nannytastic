@@ -42,7 +42,7 @@
             </ng-container>
           </div>
           <p>{{ nanny?.resumee }}</p>
-          <p class="price text-justify">{{ nanny?.price | currency:'MXN' }} / noche</p>
+          <p class="price text-justify">{{ nanny?.price | currency:'MXN' }} / hora</p>
           <div class="row">
             <div class="col d-block text-center py-2 rosa" *ngFor="let category of categories">
               <i class="fas {{ category.icon }} icon"></i>
@@ -50,7 +50,60 @@
             </div>
           </div>
           <div class="w-100 text-center">
-            <button class="btn btn-primary buy-button" (click)="openPayDialog()"><i class="fas fa-credit-card"></i> Contratar</button>
+            <button class="btn btn-primary buy-button" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="collapse"><i class="fas fa-credit-card"></i> Contratar</button>
+            <div id="collapse" class="mt-2" [ngbCollapse]="isCollapsed">
+              <div class="card">
+                <div class="card-body">
+                  <form class="form">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="form-group text-left">
+                            <label for="dp">A partir de que día requieres niñera?</label>
+                            <div class="input-group">
+                              <input class="form-control" placeholder="yyyy-mm-dd" name="start" [(ngModel)]="startDate" ngbDatepicker #start="ngbDatepicker"
+                                required>
+                              <div class="input-group-append">
+                                <button class="btn btn-primary" (click)="start.toggle()" type="button">
+                                      <i class="fas fa-calendar"></i>
+                                  </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-group text-left">
+                            <label for="start">Hasta este día?</label>
+                            <div class="input-group">
+                              <input class="form-control" placeholder="yyyy-mm-dd" name="end" [(ngModel)]="endDate" ngbDatepicker #end="ngbDatepicker" required>
+                              <div class="input-group-append">
+                                <button class="btn btn-primary" (click)="end.toggle()" type="button">
+                                      <i class="fas fa-calendar"></i>
+                                  </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <label>A partir de que hora?</label>
+                          <ngb-timepicker class="mx-auto w100" [(ngModel)]="startTime" name="startTime"></ngb-timepicker>
+                        </div>
+                        <div class="col-sm-6">
+                          <label>Hasta que hora?</label>
+                          <ngb-timepicker class="mx-auto" [(ngModel)]="endTime" name="endTime"></ngb-timepicker>
+                        </div>
+                        <div class="col-12">
+                          <p class="price text-justify">Total: {{ calculateTotal() | currency:'MXN' }}</p>
+                        </div>
+                        <div class="col-12">
+                           <app-paypal-button [price]="calculateTotal()"></app-paypal-button>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div class="col-12 my-2">
