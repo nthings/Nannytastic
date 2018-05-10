@@ -1,0 +1,14 @@
+[ver:1,total:5940]
+src/app/nanny-details/nanny-details.component.ts:1665,1525705200:80,1525813200:75,1525816800:30,1525881600:1195,1525885200:125,1525888800:160,m
+src/app/paypal-button/paypal-button.component.ts:1530,1525705200:10,1525813200:515,1525881600:15,1525885200:910,1525888800:80,m
+src/app/nanny-details/nanny-details.component.html:1445,1525813200:220,1525816800:315,1525881600:595,1525885200:45,1525888800:180,1525892400:60,1525960800:30,m
+src/app/paypal-button/paypal-button.component.html:489,1525705200:20,1525813200:454,1525881600:15,r
+src/app/nanny-info-window/nanny-info-window.component.html:382,1525791600:322,1525813200:10,1525881600:20,1525960800:30,m
+src/app/app.module.ts:137,1525705200:130,1525791600:7,r
+src/app/dialogs/kids.dialog/kids.dialog.component.html:101,1525813200:86,1525816800:15,r
+src/app/paypal-button/paypal-button.component.css:80,1525813200:80,m
+src/app/app.routes.ts:60,1525813200:60,r
+src/app/nanny-info-window/nanny-info-window.component.css:20,1525881600:20,r
+src/index.html:15,1525791600:15,r
+src/app/app.component.ts:9,1525791600:9,r
+src/app/app.component.html:7,1525791600:7,r
