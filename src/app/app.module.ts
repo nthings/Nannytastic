@@ -35,6 +35,7 @@ import { KidsDialogComponent } from './dialogs/kids.dialog/kids.dialog.component
 import { LoaderService } from './services/loader.service';
 import { NannyDetailsComponent } from './nanny-details/nanny-details.component';
 import { PaypalButtonComponent } from './paypal-button/paypal-button.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +47,8 @@ import { PaypalButtonComponent } from './paypal-button/paypal-button.component';
     LoadingComponent,
     KidsDialogComponent,
     NannyDetailsComponent,
-    PaypalButtonComponent
+    PaypalButtonComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,
